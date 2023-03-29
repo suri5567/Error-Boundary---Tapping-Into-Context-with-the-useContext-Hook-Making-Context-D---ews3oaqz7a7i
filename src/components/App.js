@@ -1,27 +1,19 @@
-import React from "react";
-import "../styles/App.css";
-import Component from "./Component";
-import ErrorBoundary from "./ErrorBoundary";
+import React from 'react'
+import '../styles/App.css';
+import { Wrapper } from '../context/userContext';
+import { Settings } from './Settings';
+import { Home } from './Home';
 const App = () => {
-  let throwErrorFunction;
-  let errorGenerator = () => {
-    throwErrorFunction(true);
-  };
 
-  let changeFunc = (updateError) => {
-    throwErrorFunction = updateError;
-  };
   return (
     <div id="main">
-      <h2>React Error Boundaries</h2>
-      <ErrorBoundary>
-        <Component change={changeFunc} />
-      </ErrorBoundary>
-      <button id="gen" onClick={errorGenerator}>
-        Generate Error
-      </button>
+      <Wrapper>
+        <Settings />
+        <Home />
+      </Wrapper>
     </div>
-  );
-};
+  )
+}
+
 
 export default App;
